@@ -162,7 +162,7 @@ const tiers: Tier[] = [
           </tbody>
         </table>
         <div class="ads-maint-note">
-          Budget ADS non incluso nel costo di gestione · Da concordare e gestire separatamente · Valori indicativi basati su benchmark di settore · Importi al netto IVA
+          Budget ADS non incluso nel costo di gestione · Da concordare e gestire separatamente · Valori indicativi basati su benchmark di settore<br>Importi al netto IVA
         </div>
       </div>
     </div>

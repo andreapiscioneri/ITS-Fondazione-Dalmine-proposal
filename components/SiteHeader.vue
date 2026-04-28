@@ -144,7 +144,7 @@ const toggleMobileMenu = () => {
 .quality-seal:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
 .seal-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px var(--orange); }
 .seal-text { display: flex; flex-direction: row; align-items: center; gap: 6px; line-height: 1.1; }
-.seal-text small { font-size: 0.625rem; opacity: 0.7; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+.seal-text small { font-size: 0.625rem; opacity: 0.7; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
 
 .hamburger {
   display: none;

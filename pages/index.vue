@@ -54,6 +54,7 @@ onMounted(() => {
       <KpiSection />
       <MaintenanceSection />
       <ScenarioSection />
+      <OurWorksSection />
       <DownloadSection />
     </main>
     <SiteFooter />

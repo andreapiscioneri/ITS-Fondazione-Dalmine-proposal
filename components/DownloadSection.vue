@@ -38,10 +38,10 @@ const onDownload = (e: MouseEvent) => {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  padding: 64px;
+  padding: 48px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 56px;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
   align-items: center;
   box-shadow: var(--shadow-md);
   position: relative;
@@ -71,7 +71,8 @@ const onDownload = (e: MouseEvent) => {
   font-weight: 500;
 }
 .download-visual {
-  aspect-ratio: 1;
+  aspect-ratio: 4/3;
+  max-height: 220px;
   background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, var(--electric) 100%);
   border-radius: var(--radius-lg);
   position: relative;
