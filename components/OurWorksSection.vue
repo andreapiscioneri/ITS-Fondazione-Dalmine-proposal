@@ -2,26 +2,35 @@
 interface Video {
   title: string
   description: string
-  youtubeId: string
+  type: 'youtube' | 'instagram'
+  id: string
 }
 
 const videos: Video[] = [
   {
-    title: 'Titolo video 1',
-    description: 'Breve descrizione del lavoro',
-    youtubeId: 'VIDEO_ID_1'
+    title: 'Video 1',
+    description: 'Produzione video DENANI S.R.L',
+    type: 'youtube',
+    id: 'jWGzpAft18w'
   },
   {
-    title: 'Titolo video 2',
-    description: 'Breve descrizione del lavoro',
-    youtubeId: 'VIDEO_ID_2'
+    title: 'Video 2',
+    description: 'Produzione video DENANI S.R.L',
+    type: 'youtube',
+    id: '1d6OwXXh0uA'
   },
   {
-    title: 'Titolo video 3',
-    description: 'Breve descrizione del lavoro',
-    youtubeId: 'VIDEO_ID_3'
+    title: 'Video 3',
+    description: 'Produzione video DENANI S.R.L',
+    type: 'instagram',
+    id: 'DVtpVaYCXlP'
   }
 ]
+
+const embedSrc = (v: Video) =>
+  v.type === 'youtube'
+    ? `https://www.youtube.com/embed/${v.id}`
+    : `https://www.instagram.com/p/${v.id}/embed/`
 </script>
 
 <template>
@@ -36,19 +45,16 @@ const videos: Video[] = [
       </div>
 
       <div class="videos-grid" data-reveal-stagger>
-        <article v-for="video in videos" :key="video.youtubeId" class="video-card">
+        <article v-for="video in videos" :key="video.id" class="video-card">
           <div class="video-embed">
             <iframe
-              :src="`https://www.youtube.com/embed/${video.youtubeId}`"
+              :src="embedSrc(video)"
               :title="video.title"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
+              scrolling="no"
             ></iframe>
-          </div>
-          <div class="video-info">
-            <div class="video-title">{{ video.title }}</div>
-            <div class="video-desc">{{ video.description }}</div>
           </div>
         </article>
       </div>
