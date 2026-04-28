@@ -2,7 +2,7 @@
 interface Tier {
   name: string
   contenutiMensili: string
-  gestione: string
+  piattaforme: string[]
   costoMensile: string
   costoAnnuo: string
   featured?: boolean
@@ -12,7 +12,7 @@ const tiers: Tier[] = [
   {
     name: 'Base',
     contenutiMensili: '1 video (30/45 sec) + 2 post',
-    gestione: 'Base',
+    piattaforme: ['Facebook', 'Instagram'],
     costoMensile: '1.200 €',
     costoAnnuo: '14.400 €'
   },
@@ -20,14 +20,14 @@ const tiers: Tier[] = [
     name: 'Medio',
     featured: true,
     contenutiMensili: '2 video (30/45 sec) + 1 attività',
-    gestione: 'Completa',
+    piattaforme: ['Facebook', 'Instagram', 'TikTok'],
     costoMensile: '2.000 €',
     costoAnnuo: '24.000 €'
   },
   {
     name: 'Pro',
     contenutiMensili: '3 video avanzati (45/60 sec)',
-    gestione: 'Multi-canale',
+    piattaforme: ['Facebook', 'Instagram', 'TikTok', 'YouTube Shorts'],
     costoMensile: '2.800 €',
     costoAnnuo: '33.600 €'
   }
@@ -42,10 +42,10 @@ const tiers: Tier[] = [
           <div class="eyebrow">Mantenimento Annuale · 12 Mesi</div>
           <h2>Brand continuity & social management.</h2>
           <p class="lead">
-            Servizio di gestione marketing con pubblicazioni organiche calendarizzate e sponsorizzazioni. Budget ADS incrementato nei primi 4 mesi di lancio, poi solo mantenimento. Tre livelli per consolidare il posizionamento del polo d'innovazione ETS Fondazione Dalmine nel Nord Italia.
+            Servizio di gestione marketing con pubblicazioni organiche calendarizzate.
           </p>
         </div>
-        <div class="scroll-hint">Scorri orizzontalmente</div>
+
       </div>
     </div>
     <div class="maintenance-scroll-wrap" data-reveal>
@@ -67,8 +67,10 @@ const tiers: Tier[] = [
               <span>{{ tier.contenutiMensili }}</span>
             </li>
             <li>
-              <span class="maint-label">Gestione campagna</span>
-              <span>{{ tier.gestione }}</span>
+              <span class="maint-label">Piattaforme</span>
+              <div class="platform-badges">
+                <span v-for="p in tier.piattaforme" :key="p" class="platform-badge" :class="p.toLowerCase().replace(/\s+/g, '-')">{{ p }}</span>
+              </div>
             </li>
             <li>
               <span class="maint-label">Costo annuo</span>
@@ -77,6 +79,10 @@ const tiers: Tier[] = [
           </ul>
         </article>
       </div>
+    </div>
+
+    <div class="container">
+      <p class="iva-note">Importi al netto IVA</p>
     </div>
 
     <div class="container">
@@ -93,6 +99,71 @@ const tiers: Tier[] = [
             <strong>Pacchetto Pro:</strong> la massima cura del dettaglio. Questo livello ci permette di investire più tempo nella lavorazione.
           </li>
         </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="ads-maint-block" data-reveal>
+        <div class="ads-maint-head">
+          <div class="eyebrow-sm">ADS Mantenimento · Non incluso</div>
+          <h3>Budget pubblicitario per la continuità</h3>
+          <p>Budget ADS consigliato per il mantenimento della visibilità dopo la campagna di lancio. Importi mensili orientativi, distribuiti sulle piattaforme attive per ogni livello.</p>
+        </div>
+        <table class="ads-table">
+          <thead>
+            <tr>
+              <th>Livello</th>
+              <th>Budget mensile</th>
+              <th>Budget annuo</th>
+              <th>Piattaforme</th>
+              <th>Visualizzazioni stimate/mese</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tier-label">Base</span></td>
+              <td><span class="ads-amount">400 — 600 €</span></td>
+              <td><span class="ads-amount-sm">4.800 — 7.200 €</span></td>
+              <td>
+                <div class="platform-badges">
+                  <span class="platform-badge facebook">Facebook</span>
+                  <span class="platform-badge instagram">Instagram</span>
+                </div>
+              </td>
+              <td><span class="ads-views">~20.000 — 35.000</span></td>
+            </tr>
+            <tr>
+              <td><span class="tier-label">Medio</span></td>
+              <td><span class="ads-amount">600 — 800 €</span></td>
+              <td><span class="ads-amount-sm">7.200 — 9.600 €</span></td>
+              <td>
+                <div class="platform-badges">
+                  <span class="platform-badge facebook">Facebook</span>
+                  <span class="platform-badge instagram">Instagram</span>
+                  <span class="platform-badge tiktok">TikTok</span>
+                </div>
+              </td>
+              <td><span class="ads-views">~40.000 — 60.000</span></td>
+            </tr>
+            <tr>
+              <td><span class="tier-label">Pro</span></td>
+              <td><span class="ads-amount">800 — 1.200 €</span></td>
+              <td><span class="ads-amount-sm">9.600 — 14.400 €</span></td>
+              <td>
+                <div class="platform-badges">
+                  <span class="platform-badge facebook">Facebook</span>
+                  <span class="platform-badge instagram">Instagram</span>
+                  <span class="platform-badge tiktok">TikTok</span>
+                  <span class="platform-badge youtube-shorts">Google</span>
+                </div>
+              </td>
+              <td><span class="ads-views">~65.000 — 100.000</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ads-maint-note">
+          Budget ADS non incluso nel costo di gestione · Da concordare e gestire separatamente · Valori indicativi basati su benchmark di settore · Importi al netto IVA
+        </div>
       </div>
     </div>
   </section>
@@ -183,6 +254,24 @@ const tiers: Tier[] = [
   opacity: 0.5;
 }
 
+.platform-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.platform-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.platform-badge.facebook { background: #e7f0ff; color: #1877f2; }
+.platform-badge.instagram { background: #fce4ec; color: #c2185b; }
+.platform-badge.tiktok { background: #f0f0f0; color: #111; }
+.platform-badge.youtube-shorts { background: #fff0e6; color: var(--orange); }
+.maint-card.featured .platform-badge.facebook { background: rgba(24,119,242,0.2); color: #90c3ff; }
+.maint-card.featured .platform-badge.instagram { background: rgba(194,24,91,0.2); color: #f48fb1; }
+.maint-card.featured .platform-badge.tiktok { background: rgba(255,255,255,0.15); color: #eee; }
+.maint-card.featured .platform-badge.youtube-shorts { background: rgba(255,107,26,0.2); color: #ffb38a; }
+
 .video-notes {
   margin: 48px auto 0;
   padding: 32px 36px;
@@ -202,4 +291,89 @@ const tiers: Tier[] = [
 .video-notes ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .video-notes li { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
 .video-notes li strong { color: var(--navy-deep); }
+
+.ads-maint-block {
+  margin-top: 64px;
+  background: var(--fog);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  border: 1px solid var(--line);
+}
+.eyebrow-sm {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.ads-maint-head h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  color: var(--navy-deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.ads-maint-head p { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; margin-bottom: 32px; }
+
+.ads-table { width: 100%; border-collapse: collapse; }
+.ads-table thead th {
+  text-align: left;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--slate);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.ads-table tbody tr { border-bottom: 1px solid var(--line); transition: background 0.2s; }
+.ads-table tbody tr:hover { background: var(--white); }
+.ads-table tbody tr:last-child { border-bottom: none; }
+.ads-table td { padding: 20px 16px; vertical-align: middle; }
+
+.tier-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+}
+.ads-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  letter-spacing: -0.02em;
+}
+.ads-amount-sm {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--slate);
+}
+.ads-views {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.iva-note {
+  font-size: 0.8125rem;
+  color: var(--slate-light);
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.ads-maint-note {
+  margin-top: 24px;
+  font-size: 0.8125rem;
+  color: var(--slate-light);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
 </style>

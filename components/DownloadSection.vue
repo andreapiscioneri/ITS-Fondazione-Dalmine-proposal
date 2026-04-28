@@ -10,13 +10,9 @@ const onDownload = (e: MouseEvent) => {
     <div class="download-card" data-reveal>
       <div>
         <div class="eyebrow">Area Download</div>
-        <h3>Scarica il Riepilogo Tecnico-Economico.</h3>
-        <p>
-          Versione PDF completa della proposta strategica 2026/27, con tabelle KPI, scenario economico e roadmap 16 mesi. Documento
-          ottimizzato per condivisione con stakeholder ETS Fondazione Dalmine e Founding Partner.
-        </p>
+        <h3>Scarica il riepilogo</h3>
         <a href="#" class="btn btn-electric download-btn" @click="onDownload">
-          Scarica PDF Proposta
+          PDF Proposta
           <span class="arrow">↓</span>
         </a>
         <div class="download-meta">

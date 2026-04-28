@@ -76,6 +76,7 @@ const plans: Plan[] = [
         </article>
       </div>
 
+      <p class="iva-note">Importi al netto IVA</p>
     </div>
   </section>
 </template>
@@ -184,6 +185,13 @@ const plans: Plan[] = [
 .video-notes ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .video-notes li { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
 .video-notes li strong { color: var(--navy-deep); }
+.iva-note {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  color: var(--slate-light);
+  letter-spacing: 0.04em;
+}
 .price-cta {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 22px;

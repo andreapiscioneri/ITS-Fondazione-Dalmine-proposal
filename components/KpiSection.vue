@@ -1,17 +1,48 @@
 <script setup lang="ts">
+interface PlatformEntry {
+  label: string
+  budget: string
+  views: string
+}
+
 interface Row {
   budget: string
   width: string
   result: string
   num: string
+  platforms: PlatformEntry[]
   tag: string
   high?: boolean
 }
 
 const rows: Row[] = [
-  { budget: '2.000 — 3.000€', width: '30%', result: 'iscritti', num: '15-25', tag: 'Entry Level' },
-  { budget: '3.000 — 5.000€', width: '55%', result: 'iscritti', num: '≥30', tag: 'Target Ottimale', high: true },
-  { budget: '5.000 — 7.000€', width: '85%', result: 'iscritti', num: '35-50', tag: 'Performance Massima' }
+  {
+    budget: '2.000 — 3.000€',
+    width: '30%', result: 'iscritti', num: '15-25',
+    platforms: [
+      { label: 'Meta', budget: '2.000–3.000€', views: '~100.000–150.000' }
+    ],
+    tag: 'Entry Level'
+  },
+  {
+    budget: '3.000 — 5.000€',
+    width: '55%', result: 'iscritti', num: '≥30',
+    platforms: [
+      { label: 'Meta', budget: '~2.200€', views: '~110.000' },
+      { label: 'Google', budget: '~1.800€', views: '~95.000' }
+    ],
+    tag: 'Target Ottimale', high: true
+  },
+  {
+    budget: '5.000 — 7.000€',
+    width: '85%', result: 'iscritti', num: '35-50',
+    platforms: [
+      { label: 'Meta', budget: '~2.100€', views: '~105.000' },
+      { label: 'TikTok', budget: '~2.400€', views: '~170.000' },
+      { label: 'Google', budget: '~1.500€', views: '~80.000' }
+    ],
+    tag: 'Performance Massima'
+  }
 ]
 
 const fillsAnimated = ref(false)
@@ -49,15 +80,16 @@ onMounted(() => {
           <h3>Budget ADS → Conversioni Stimate</h3>
           <div class="live-indicator">
             <span class="dot-blue"></span>
-            Live data simulation
+            Non incluso, a cura del cliente.
           </div>
         </div>
         <table class="kpi-table">
           <thead>
             <tr>
               <th>Investimento ADS</th>
-              <th>Allocazione</th>
+              <th>Distribuzione Budget</th>
               <th>Iscritti Attesi</th>
+              <th>Visualizzazioni Stimate</th>
               <th>Performance</th>
             </tr>
           </thead>
@@ -65,8 +97,10 @@ onMounted(() => {
             <tr v-for="row in rows" :key="row.budget">
               <td><span class="budget-cell">{{ row.budget }}</span></td>
               <td>
-                <div class="budget-bar">
-                  <div class="fill" :style="{ width: fillsAnimated ? row.width : '0%' }"></div>
+                <div class="platform-split">
+                  <div v-for="p in row.platforms" :key="p.label" class="platform-row">
+                    <span class="platform-label" :class="p.label.toLowerCase()">{{ p.label }}</span>
+                  </div>
                 </div>
               </td>
               <td>
@@ -74,14 +108,22 @@ onMounted(() => {
                   <span class="num">{{ row.num }}</span> {{ row.result }}
                 </div>
               </td>
+              <td>
+                <div class="platform-split">
+                  <div v-for="p in row.platforms" :key="p.label" class="platform-row">
+                    <span class="platform-label" :class="p.label.toLowerCase()">{{ p.label }}</span>
+                    <span class="platform-val">{{ p.views }}</span>
+                  </div>
+                </div>
+              </td>
               <td><span class="roi-tag" :class="{ high: row.high }">{{ row.tag }}</span></td>
             </tr>
           </tbody>
         </table>
         <div class="kpi-disclaimer">
-          <strong>Nota metodologica:</strong> le proiezioni sono basate su benchmark del settore education-technical Lombardia. Variabili: stagionalità, qualità del messaggio, geo-targeting (Bergamo, Brescia, Lecco, Milano
-          Nord-Est).
+          <strong>Nota metodologica:</strong> le proiezioni sono basate su benchmark del settore education-technical Lombardia. Variabili: stagionalità, qualità del messaggio, geo-targeting (Bergamo, Brescia, Lecco, Milano Nord-Est).
         </div>
+        <p class="kpi-iva">Importi al netto IVA</p>
       </div>
     </div>
   </section>
@@ -158,6 +200,28 @@ onMounted(() => {
   letter-spacing: -0.03em;
 }
 .iscritti-result .num { color: var(--orange); }
+.platform-split { display: flex; flex-direction: column; gap: 6px; }
+.platform-row { display: flex; align-items: center; gap: 8px; }
+.platform-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 44px;
+  text-align: center;
+}
+.platform-label.meta { background: #e7f0ff; color: #1877f2; }
+.platform-label.tiktok { background: #f0f0f0; color: #111; }
+.platform-label.google { background: #fef3e2; color: #ea4335; }
+.platform-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
 .roi-tag {
   display: inline-flex;
   padding: 4px 10px;
@@ -181,6 +245,13 @@ onMounted(() => {
   line-height: 1.6;
 }
 .kpi-disclaimer strong { color: var(--navy-deep); }
+.kpi-iva {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: var(--slate-light);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
 
 @media (max-width: 980px) {
   .kpi-dashboard { padding: 24px; }

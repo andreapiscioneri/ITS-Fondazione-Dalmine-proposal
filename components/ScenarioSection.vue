@@ -12,9 +12,9 @@ const rows = [
     <div class="container">
       <div class="section-head" data-reveal>
         <div class="eyebrow">Scenario Economico Totale</div>
-        <h2>Investimento strategico Bergamo, 16 mesi.</h2>
+        <h2>Investimento strategico</h2>
         <p class="lead">
-          Sintesi trasparente del piano economico complessivo: campagna di lancio, ADS, mantenimento annuale e advertising di mantenimento.
+          Sintesi del piano economico complessivo: campagna di lancio, ADS, mantenimento annuale e advertising di mantenimento.
         </p>
       </div>
 
@@ -33,8 +33,7 @@ const rows = [
         </div>
 
         <div class="checkout-meta">
-          Importi al netto IVA · Ottimizzabili per ottenere finanziamenti regionali e fondi interprofessionali.
-        </div>
+          Importi al netto IVA</div>
       </div>
     </div>
   </section>
