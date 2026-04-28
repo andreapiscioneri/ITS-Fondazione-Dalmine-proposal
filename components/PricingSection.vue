@@ -75,10 +75,7 @@ const plans: Plan[] = [
               <span class="check-icon">✓</span> {{ f }}
             </li>
           </ul>
-          <a href="#download" class="price-cta">
-            Seleziona {{ plan.name }}
-            <span>→</span>
-          </a>
+
         </article>
       </div>
     </div>

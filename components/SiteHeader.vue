@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const scrolled = ref(false)
+const mobileMenuOpen = ref(false)
 
 const onScroll = () => {
   scrolled.value = window.scrollY > 24
@@ -20,6 +21,11 @@ const handleAnchor = (e: MouseEvent, id: string) => {
     e.preventDefault()
     window.scrollTo({ top: (target as HTMLElement).offsetTop - 80, behavior: 'smooth' })
   }
+  mobileMenuOpen.value = false
+}
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
 }
 </script>
 
@@ -42,14 +48,28 @@ const handleAnchor = (e: MouseEvent, id: string) => {
         <a href="#scenario" @click="handleAnchor($event, '#scenario')">Scenario</a>
       </nav>
 
-      <a href="#" class="quality-seal" aria-label="A cura di Denani Agency — Sigillo di Qualità">
+      <a href="#" class="quality-seal" aria-label="A cura di DENANI S.R.L — Sigillo di Qualità">
         <span class="seal-dot" aria-hidden="true"></span>
         <span class="seal-text">
           <small>A cura di</small>
-          <strong>Denani Agency</strong>
+          <img src="/DENANI-LOGO-WHITE.webp" alt="DENANI S.R.L" class="denani-logo" />
         </span>
       </a>
+
+      <button class="hamburger" :class="{ active: mobileMenuOpen }" @click="toggleMobileMenu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+
+    <nav v-if="mobileMenuOpen" class="nav-mobile" aria-label="Navigazione mobile">
+      <a href="#ecosistema" @click="handleAnchor($event, '#ecosistema')">Ecosistema</a>
+      <a href="#campagna" @click="handleAnchor($event, '#campagna')">Campagna</a>
+      <a href="#kpi" @click="handleAnchor($event, '#kpi')">KPI</a>
+      <a href="#mantenimento" @click="handleAnchor($event, '#mantenimento')">Mantenimento</a>
+      <a href="#scenario" @click="handleAnchor($event, '#scenario')">Scenario</a>
+    </nav>
   </header>
 </template>
 
@@ -112,6 +132,8 @@ const handleAnchor = (e: MouseEvent, id: string) => {
   position: relative;
   overflow: hidden;
 }
+.denani-logo { height: 16px; width: auto; display: block; }
+.seal-text img { height: 16px; width: auto; }
 .quality-seal::before {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
@@ -121,10 +143,62 @@ const handleAnchor = (e: MouseEvent, id: string) => {
 .quality-seal:hover::before { transform: translateX(100%); }
 .quality-seal:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
 .seal-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px var(--orange); }
-.seal-text { display: flex; flex-direction: column; line-height: 1.1; }
-.seal-text small { font-size: 0.625rem; opacity: 0.7; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; }
+.seal-text { display: flex; flex-direction: row; align-items: center; gap: 6px; line-height: 1.1; }
+.seal-text small { font-size: 0.625rem; opacity: 0.7; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy-deep);
+  border-radius: 1px;
+  transition: all 0.3s var(--ease);
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--line);
+  flex-direction: column;
+  padding: 16px 32px;
+  gap: 16px;
+}
+.nav-mobile a {
+  font-size: 1rem;
+  color: var(--navy-deep);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-mobile a:hover {
+  color: var(--navy);
+}
 
 @media (max-width: 980px) {
   .nav-main { display: none; }
+  .quality-seal { display: none; }
+  .hamburger { display: flex; }
+  .nav-mobile { display: flex; }
 }
 </style>

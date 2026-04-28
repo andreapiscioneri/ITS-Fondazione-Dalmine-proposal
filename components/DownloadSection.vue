@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const onDownload = (e: MouseEvent) => {
   e.preventDefault()
-  alert('Il PDF sarà disponibile a presentazione conclusa.')
+  window.open('/Denani ITS Fondazione Dalmine proposal.pdf', '_blank')
 }
 </script>
 
@@ -20,21 +20,12 @@ const onDownload = (e: MouseEvent) => {
           <span class="arrow">↓</span>
         </a>
         <div class="download-meta">
-          <span>PDF · A4</span>
-          <span>~2.4 MB</span>
-          <span>Versione 1.0</span>
         </div>
       </div>
       <div class="download-visual" aria-hidden="true">
         <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="12" y1="18" x2="12" y2="12" />
-            <polyline points="9 15 12 18 15 15" />
-          </svg>
+          <img src="/DENANI-LOGO-WHITE.webp" alt="DENANI" class="denani-logo" />
         </div>
-        <div class="filename">ITS-Dalmine_Proposta_2026-27_v1.0.pdf</div>
       </div>
     </div>
   </section>
@@ -111,6 +102,7 @@ const onDownload = (e: MouseEvent) => {
 }
 .download-card:hover .download-visual .icon { transform: scale(1.08) rotate(-2deg); }
 .download-visual .icon svg { width: 40px; height: 40px; }
+.download-visual .icon .denani-logo { width: 56px; height: auto; display: block; }
 .download-visual .filename {
   position: absolute;
   bottom: 24px; left: 24px; right: 24px;

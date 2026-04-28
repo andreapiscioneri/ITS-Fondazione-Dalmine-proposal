@@ -5,13 +5,15 @@ const partners = [
     role: 'Founding Partner · Acciaio',
     tagline: "Architettura industriale dell'acciaio: tubi senza saldatura per energia, automotive e infrastrutture critiche.",
     img: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1400&q=85',
+    logo: '/Tenaris_Logo.svg.png',
     cls: 'tile-tenaris'
   },
   {
     name: 'Brembo',
     role: 'Founding Partner · Sistemi frenanti',
     tagline: 'High-performance braking systems: ricerca, materiali compositi e tecnologie per la mobilità del futuro.',
-    img: 'https://images.unsplash.com/photo-1597007030739-6d2e7172ee6c?auto=format&fit=crop&w=1400&q=85',
+      img: '/jan-kopriva-tz2IwLvzMAE-unsplash.jpg',
+    logo: '/Brembo_logo_(2022).svg.png',
     cls: 'tile-brembo'
   },
   {
@@ -19,6 +21,7 @@ const partners = [
     role: 'Founding Partner · Automazione elettrica',
     tagline: 'Smart electrical panels e soluzioni di automazione per gli impianti industriali Industry 4.0.',
     img: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=85',
+    logo: '/Logo_lovatoelectric.png',
     cls: 'tile-lovato'
   }
 ]
@@ -50,12 +53,13 @@ const partners = [
         </article>
 
         <article v-for="p in partners" :key="p.name" class="bento-tile" :class="p.cls">
-          <div class="tile-bg" :style="{ backgroundImage: `url('${p.img}')` }" aria-hidden="true"></div>
+          <div class="tile-bg" :style="p.img ? { backgroundImage: `url('${p.img}')` } : {}" aria-hidden="true"></div>
           <div class="tile-overlay"></div>
           <div class="tile-content">
             <div class="tile-meta"><span class="dot"></span>{{ p.role }}</div>
             <div>
-              <div class="tile-brand">{{ p.name }}</div>
+              <img v-if="p.logo" :src="p.logo" :alt="p.name + ' logo'" class="tile-logo" />
+              <div v-else class="tile-brand">{{ p.name }}</div>
               <div class="tile-tagline">{{ p.tagline }}</div>
             </div>
           </div>
@@ -111,10 +115,17 @@ const partners = [
   flex-direction: column;
   justify-content: space-between;
 }
-.bento-tile .tile-overlay {
+  .bento-tile .tile-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(0,26,61,0.1) 0%, rgba(0,26,61,0.85) 100%);
+  background: linear-gradient(180deg, rgba(0,26,61,0.2) 0%, rgba(0,26,61,0.9) 100%);
 }
+
+  /* Stronger overlay for partner tiles to improve logo contrast */
+  .tile-tenaris .tile-overlay,
+  .tile-brembo .tile-overlay,
+  .tile-lovato .tile-overlay {
+    background: linear-gradient(180deg, rgba(0,26,61,0.45) 0%, rgba(0,26,61,0.92) 100%);
+  }
 .tile-brand {
   color: var(--white);
   font-family: 'Space Grotesk', sans-serif;
@@ -122,6 +133,19 @@ const partners = [
   font-size: 1.5rem;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
+}
+.tile-logo {
+  display: block;
+  max-height: 54px;
+  width: auto;
+  margin-bottom: 12px;
+  filter: none;
+  /* white backdrop to make logos visible */
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(8,18,36,0.06);
 }
 .tile-tagline { color: rgba(255,255,255,0.85); font-size: 0.9375rem; line-height: 1.5; }
 .tile-meta {
@@ -186,5 +210,12 @@ const partners = [
 @media (max-width: 980px) {
   .bento { grid-template-columns: repeat(2, 1fr); }
   .tile-headline, .tile-tenaris, .tile-brembo, .tile-lovato, .tile-stat { grid-column: span 2; }
+}
+
+/* Fallback gradient for Brembo when no background image is provided */
+.tile-brembo .tile-bg {
+  background-image: linear-gradient(180deg, #e6e9ee 0%, #304659 60%, #122038 100%);
+  background-size: cover;
+  background-position: center;
 }
 </style>

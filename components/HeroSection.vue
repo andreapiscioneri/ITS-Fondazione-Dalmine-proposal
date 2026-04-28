@@ -26,7 +26,13 @@ onBeforeUnmount(() => {
       <div data-reveal>
         <div class="hero-eyebrow">
           <span class="pulse"></span>
-          Proposta strategica · 16 Mesi · 2026/27
+          <span class="eyebrow-text eyebrow-text--lead">Proposta strategia di marketing</span>
+          <span class="eyebrow-logos" aria-hidden="true">
+            <img src="/DENANI-LOGO-WHITE.webp" alt="Denani" class="eyebrow-logo" />
+            <span class="eyebrow-separator">—</span>
+            <img src="/loghi-trasparenti-4.png" alt="Fondazione Dalmine" class="eyebrow-logo eyebrow-logo--fondazione" />
+          </span>
+          <span class="eyebrow-text eyebrow-text--meta">16 Mesi · 2026/27</span>
         </div>
       </div>
       <h1 data-reveal>
@@ -34,7 +40,7 @@ onBeforeUnmount(() => {
         <span class="accent">Strategia Marketing Integrata</span> 2026.
       </h1>
       <p class="hero-sub" data-reveal>
-        Un progetto coordinato da <strong>Denani Agency</strong> per ITS Fondazione Dalmine, in sinergia con i Founding Partner industriali
+        Un progetto coordinato da <strong>DENANI S.R.L</strong> per ITS Fondazione Dalmine, in sinergia con i Founding Partner industriali
         <strong>Tenaris, Brembo e Lovato Electric</strong>. Connettere talento e industria nell'ecosistema meccatronico di Bergamo.
       </p>
       <div class="hero-cta-row" data-reveal>
@@ -59,7 +65,7 @@ onBeforeUnmount(() => {
 
 <script lang="ts">
 const stats = [
-  { num: '16<span style="opacity:0.5">mo</span>', label: 'Strategia integrata' },
+  { num: '16<span style="font-size:0.55em;display:inline-block;margin-left:4px">mesi</span>', label: 'Strategia integrata' },
   { num: '3', label: 'Founding Partner industriali' },
   { num: '≥30', label: 'Iscritti attesi (target medio)' },
   { num: '44.500€', label: 'Investimento totale stimato' }
@@ -115,10 +121,31 @@ const stats = [
   font-weight: 500;
   margin-bottom: 32px;
 }
+.eyebrow-text,
+.eyebrow-logos {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 .hero-eyebrow .pulse {
   width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
   box-shadow: 0 0 0 0 var(--orange);
   animation: pulse 2s infinite;
+}
+.eyebrow-separator {
+  opacity: 0.7;
+}
+.eyebrow-logo {
+  height: 28px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px;
+  opacity: 0.9;
+}
+.eyebrow-logo--fondazione {
+  height: 36px;
+  filter: brightness(0) invert(1);
 }
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(255,107,26,0.7); }
@@ -169,8 +196,79 @@ const stats = [
 @media (max-width: 980px) {
   .hero { padding: 120px 24px 64px; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  .eyebrow-logo {
+    height: 24px;
+    margin: 0 3px;
+  }
+  .eyebrow-logo--fondazione {
+    height: 30px;
+  }
 }
 @media (max-width: 600px) {
+  .hero { padding: 124px 16px 64px; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
+  .hero h1 { max-width: 11ch; font-size: 2.25rem; line-height: 1.08; }
+  .hero-sub { font-size: 0.9375rem; }
+  .hero-eyebrow {
+    border-radius: 20px;
+    position: relative;
+    font-size: 0.76rem;
+    line-height: 1.15;
+    padding: 40px 20px 18px;
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .eyebrow-text,
+  .eyebrow-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .eyebrow-text--lead {
+    order: 1;
+  }
+  .eyebrow-text--meta {
+    order: 2;
+  }
+  .eyebrow-logos {
+    order: 3;
+  }
+  .eyebrow-separator {
+    display: none;
+  }
+  .hero-eyebrow .pulse {
+    display: block;
+    position: absolute;
+    top: 18px; /* push the dot further from the top border */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+  }
+  .eyebrow-text--lead,
+  .eyebrow-text--meta {
+    width: 100%;
+  }
+  .eyebrow-logo {
+    height: 36px;
+    margin: 0 2px;
+  }
+  .eyebrow-logo--fondazione {
+    height: 54px;
+  }
+  .hero h1 .accent {
+    display: inline;
+  }
 }
 </style>

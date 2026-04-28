@@ -13,8 +13,8 @@ useHead({
         name: 'Strategia Marketing Integrata 2026/27 ITS Fondazione Dalmine',
         provider: {
           '@type': 'Organization',
-          name: 'Denani Agency',
-          url: 'https://denani.it'
+          name: 'DENANI S.R.L',
+          url: 'https://denani.odoo.com/'
         },
         areaServed: {
           '@type': 'Place',
@@ -49,6 +49,7 @@ onMounted(() => {
     <SiteHeader />
     <main>
       <HeroSection />
+      <PartnersSection />
       <EcosystemSection />
       <PricingSection />
       <KpiSection />
