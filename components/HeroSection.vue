@@ -29,19 +29,17 @@ onBeforeUnmount(() => {
           <span class="eyebrow-text eyebrow-text--lead">Proposta strategia di marketing</span>
           <span class="eyebrow-logos" aria-hidden="true">
             <img src="/DENANI-LOGO-WHITE.webp" alt="Denani" class="eyebrow-logo" />
-            <span class="eyebrow-separator">—</span>
+            <span class="eyebrow-separator">|</span>
             <img src="/loghi-trasparenti-4.png" alt="Fondazione Dalmine" class="eyebrow-logo eyebrow-logo--fondazione" />
           </span>
-          <span class="eyebrow-text eyebrow-text--meta">16 Mesi · 2026/27</span>
-        </div>
+          </div>
       </div>
       <h1 data-reveal>
         L'Evoluzione del Talento:<br />
-        <span class="accent">Strategia Marketing Integrata</span> 2026.
+        <span class="accent">Strategia Marketing Integrata</span> 2026
       </h1>
       <p class="hero-sub" data-reveal>
-        Un progetto coordinato da <strong>DENANI S.R.L</strong> per ITS Fondazione Dalmine, in sinergia con i Founding Partner industriali
-        <strong>Tenaris, Brembo e Lovato Electric</strong>. Connettere talento e industria nell'ecosistema meccatronico di Bergamo.
+        Un progetto coordinato da <strong>DENANI S.R.L</strong> per <strong>ETS Fondazione Dalmine</strong>, polo d'innovazione italiano per l'alta formazione tecnica. Promuovere i percorsi post-diploma in tutto il Nord Italia, la casa dello studente e la partnership tra <strong>Tenaris, Brembo e Lovato Electric</strong>.
       </p>
       <div class="hero-cta-row" data-reveal>
         <a href="#scenario" class="btn btn-primary">
@@ -53,24 +51,10 @@ onBeforeUnmount(() => {
         </a>
       </div>
 
-      <div class="hero-stats" data-reveal-stagger>
-        <div v-for="stat in stats" :key="stat.label" class="stat-cell">
-          <div class="num" v-html="stat.num"></div>
-          <div class="label">{{ stat.label }}</div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
 
-<script lang="ts">
-const stats = [
-  { num: '16<span style="font-size:0.55em;display:inline-block;margin-left:4px">mesi</span>', label: 'Strategia integrata' },
-  { num: '3', label: 'Founding Partner industriali' },
-  { num: '≥30', label: 'Iscritti attesi (target medio)' },
-  { num: '44.500€', label: 'Investimento totale stimato' }
-]
-</script>
 
 <style scoped>
 .hero {
@@ -128,8 +112,8 @@ const stats = [
   gap: 10px;
 }
 .hero-eyebrow .pulse {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
-  box-shadow: 0 0 0 0 var(--orange);
+  width: 6px; height: 6px; border-radius: 50%; background: #7dd3fc;
+  box-shadow: 0 0 0 0 #7dd3fc;
   animation: pulse 2s infinite;
 }
 .eyebrow-separator {
@@ -144,13 +128,13 @@ const stats = [
   opacity: 0.9;
 }
 .eyebrow-logo--fondazione {
-  height: 36px;
+  height: 56px;
   filter: brightness(0) invert(1);
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,107,26,0.7); }
-  70% { box-shadow: 0 0 0 12px rgba(255,107,26,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,107,26,0); }
+  0% { box-shadow: 0 0 0 0 rgba(125,211,252,0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(125,211,252,0); }
+  100% { box-shadow: 0 0 0 0 rgba(125,211,252,0); }
 }
 .hero h1 { max-width: 18ch; margin-bottom: 24px; }
 .hero h1 .accent { color: var(--electric-glow); font-style: italic; font-weight: 400; }

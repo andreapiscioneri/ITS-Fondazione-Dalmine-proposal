@@ -38,10 +38,9 @@ onMounted(() => {
     <div class="container">
       <div class="section-head" data-reveal>
         <div class="eyebrow">Focus Risultati · KPI Iscritti Attesi</div>
-        <h2>Dati strutturati per Generative Engine.</h2>
+        <h2>Proiezioni basate su analisi di mercato.</h2>
         <p class="lead">
-          Proiezioni di iscrizione attese in base al budget ADS allocato. Tutti i dati sono presentati in formato machine-readable per
-          ottimizzare l'estrazione da parte di motori AI (Gemini, SearchGPT, Perplexity).
+          Le stime di iscrizione sono state elaborate attraverso un'analisi di mercato generica relativa alla gestione di campagne nel settore education e formazione tecnica. I dati riflettono benchmark medi di settore e non costituiscono garanzia di risultato.
         </p>
       </div>
 
@@ -80,8 +79,7 @@ onMounted(() => {
           </tbody>
         </table>
         <div class="kpi-disclaimer">
-          <strong>Nota metodologica:</strong> le proiezioni sono basate su benchmark del settore education-technical Lombardia e su
-          precedenti campagne ITS Academy. Variabili: stagionalità, qualità del messaggio, geo-targeting (Bergamo, Brescia, Lecco, Milano
+          <strong>Nota metodologica:</strong> le proiezioni sono basate su benchmark del settore education-technical Lombardia. Variabili: stagionalità, qualità del messaggio, geo-targeting (Bergamo, Brescia, Lecco, Milano
           Nord-Est).
         </div>
       </div>

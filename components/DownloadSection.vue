@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const onDownload = (e: MouseEvent) => {
   e.preventDefault()
-  window.open('/Denani ITS Fondazione Dalmine proposal.pdf', '_blank')
+  window.open('/Denani ETS Fondazione Dalmine proposal.pdf', '_blank')
 }
 </script>
 
@@ -13,7 +13,7 @@ const onDownload = (e: MouseEvent) => {
         <h3>Scarica il Riepilogo Tecnico-Economico.</h3>
         <p>
           Versione PDF completa della proposta strategica 2026/27, con tabelle KPI, scenario economico e roadmap 16 mesi. Documento
-          ottimizzato per condivisione con stakeholder ITS Fondazione Dalmine e Founding Partner.
+          ottimizzato per condivisione con stakeholder ETS Fondazione Dalmine e Founding Partner.
         </p>
         <a href="#" class="btn btn-electric download-btn" @click="onDownload">
           Scarica PDF Proposta

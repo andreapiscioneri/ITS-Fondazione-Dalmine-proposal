@@ -3,7 +3,9 @@ interface Plan {
   name: string
   price: string
   period: string
-  features: string[]
+  contenuti: string
+  gestione: string
+  report: string
   featured?: boolean
   badge?: string
 }
@@ -11,45 +13,33 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: 'Base',
-    price: '6.000€',
+    price: '6.000 €',
     period: 'una tantum · 4 mesi',
-    features: [
-      'Setup tecnico tracciamento',
-      '2-3 contenuti / mese',
-      'Ottimizzazione SEO base',
-      'Report mensile sintetico',
-      'Coordinamento Denani'
-    ]
+    contenuti: '1 video istituzionale (30/45 sec)\n+ 2 brevi (15 sec)',
+    gestione: 'Setup + base',
+    report: 'Finale (dopo i 4 mesi)'
   },
   {
     name: 'Medio',
-    price: '9.000€',
+    price: '9.000 €',
     period: 'una tantum · 4 mesi',
     badge: 'Consigliato',
     featured: true,
-    features: [
-      'Setup tecnico avanzato + GTM',
-      '4-6 contenuti / mese (video + foto)',
-      'SEO, GEO & AIO ottimizzazione',
-      'Report mensile completo + insight',
-      'A/B test creatività ADS',
-      'Coordinamento Denani Senior'
-    ]
+    contenuti: '4–6 video + post',
+    gestione: 'Setup + ottimizzazione',
+    report: 'Mensile'
   },
   {
     name: 'Pro',
-    price: '12.000€',
+    price: '12.000 €',
     period: 'una tantum · 4 mesi',
-    features: [
-      'Setup full-stack + dashboard custom',
-      '8-10 contenuti / mese (multi-formato)',
-      'SEO, GEO, AIO + Entity Linking',
-      'Report settimanale + KPI live',
-      'Studio video professionale',
-      'Strategia influencer educational'
-    ]
+    contenuti: '6–10 video + post',
+    gestione: 'Avanzata',
+    report: 'KPI avanzati'
   }
 ]
+
+
 </script>
 
 <template>
@@ -59,8 +49,7 @@ const plans: Plan[] = [
         <div class="eyebrow">Campagna Promozionale · 4 Mesi</div>
         <h2>Tre piani di lancio. Una sola direzione strategica.</h2>
         <p class="lead">
-          Setup tecnico, content production, advertising e reportistica mensile per generare iscrizioni qualificate al ciclo formativo
-          2026/27.
+          Campagna finalizzata alle iscrizioni e alla promozione del polo d'innovazione ETS Fondazione Dalmine in tutto il Nord Italia. Comunicazione differenziata per <strong>studenti</strong> e <strong>genitori</strong>, con produzione video, advertising e reportistica inclusi.
         </p>
       </div>
 
@@ -71,13 +60,22 @@ const plans: Plan[] = [
           <div class="price-amount">{{ plan.price }}</div>
           <div class="price-period">{{ plan.period }}</div>
           <ul class="price-features">
-            <li v-for="f in plan.features" :key="f">
-              <span class="check-icon">✓</span> {{ f }}
+            <li>
+              <span class="feat-label">Contenuti</span>
+              <span>{{ plan.contenuti }}</span>
+            </li>
+            <li>
+              <span class="feat-label">Gestione campagna</span>
+              <span>{{ plan.gestione }}</span>
+            </li>
+            <li>
+              <span class="feat-label">Report risultati</span>
+              <span>{{ plan.report }}</span>
             </li>
           </ul>
-
         </article>
       </div>
+
     </div>
   </section>
 </template>
@@ -151,22 +149,41 @@ const plans: Plan[] = [
 .price-period { font-size: 0.875rem; opacity: 0.6; margin-bottom: 32px; }
 .price-features { list-style: none; margin-bottom: 36px; }
 .price-features li {
-  display: flex; align-items: flex-start; gap: 12px;
+  display: flex; flex-direction: column; gap: 2px;
   padding: 12px 0;
   border-top: 1px solid var(--line);
   font-size: 0.9375rem;
 }
 .price-card.featured .price-features li { border-top-color: rgba(255,255,255,0.12); }
-.check-icon {
-  flex-shrink: 0; width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--navy);
-  color: white;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 11px;
-  margin-top: 1px;
+.feat-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  opacity: 0.5;
 }
-.price-card.featured .check-icon { background: var(--electric-glow); }
+.price-features li span:not(.feat-label) { white-space: pre-line; }
+
+.video-notes {
+  max-width: 1320px;
+  margin: 48px auto 0;
+  padding: 32px 36px;
+  background: var(--fog);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--navy);
+}
+.video-notes-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.video-notes ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.video-notes li { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
+.video-notes li strong { color: var(--navy-deep); }
 .price-cta {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 22px;

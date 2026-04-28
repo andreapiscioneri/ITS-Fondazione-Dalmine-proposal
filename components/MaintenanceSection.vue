@@ -1,63 +1,35 @@
 <script setup lang="ts">
 interface Tier {
   name: string
-  price: string
-  period?: string
-  summary: string
-  list: string[]
+  contenutiMensili: string
+  gestione: string
+  costoMensile: string
+  costoAnnuo: string
   featured?: boolean
-  addon?: boolean
 }
 
 const tiers: Tier[] = [
   {
     name: 'Base',
-    price: '1.200€',
-    period: '/mese',
-    summary: 'Presidio editoriale essenziale per mantenere viva la presenza online della Fondazione.',
-    list: ['2 post / settimana social', '1 newsletter mensile', 'Monitoraggio performance', 'Community management base', 'Report trimestrale']
+    contenutiMensili: '1 video (30/45 sec) + 2 post',
+    gestione: 'Base',
+    costoMensile: '1.200 €',
+    costoAnnuo: '14.400 €'
   },
   {
-    name: 'Medio · Consigliato',
-    price: '2.000€',
-    period: '/mese',
+    name: 'Medio',
     featured: true,
-    summary: "Presidio editoriale e strategico continuativo, allineato al ciclo formativo dell'ITS.",
-    list: [
-      '4 post / settimana multicanale',
-      '2 newsletter mensili segmentate',
-      'Storytelling Founding Partner',
-      'SEO content + AIO entity linking',
-      'Community management avanzato',
-      'Report mensile + call strategica'
-    ]
+    contenutiMensili: '2 video (30/45 sec) + 1 attività',
+    gestione: 'Completa',
+    costoMensile: '2.000 €',
+    costoAnnuo: '24.000 €'
   },
   {
     name: 'Pro',
-    price: '2.800€',
-    period: '/mese',
-    summary: 'Presidio premium con produzione video continua, eventi e attivazione studenti.',
-    list: [
-      'Post quotidiani, multi-platform',
-      '4 newsletter mensili targetizzate',
-      'Video reportage mensile',
-      'SEO/GEO/AIO full optimization',
-      'Coverage eventi Fondazione & Partner',
-      'Dashboard live KPI & report bisettimanale'
-    ]
-  },
-  {
-    name: 'Add-on Disponibili',
-    price: 'Modulari',
-    addon: true,
-    summary: 'Servizi aggiuntivi attivabili on-demand per esigenze straordinarie.',
-    list: [
-      'Open Day strategy & coverage',
-      'Video case-study Founding Partner',
-      'PR e ufficio stampa locale',
-      'Brand ambassador program studenti',
-      'Sito sezione "Career Hub"'
-    ]
+    contenutiMensili: '3 video avanzati (45/60 sec)',
+    gestione: 'Multi-canale',
+    costoMensile: '2.800 €',
+    costoAnnuo: '33.600 €'
   }
 ]
 </script>
@@ -70,8 +42,7 @@ const tiers: Tier[] = [
           <div class="eyebrow">Mantenimento Annuale · 12 Mesi</div>
           <h2>Brand continuity & social management.</h2>
           <p class="lead">
-            Tre livelli di presidio continuativo per consolidare il posizionamento dell'ITS Fondazione Dalmine come riferimento dell'alta
-            formazione tecnica in Lombardia.
+            Servizio di gestione marketing con pubblicazioni organiche calendarizzate e sponsorizzazioni. Budget ADS incrementato nei primi 4 mesi di lancio, poi solo mantenimento. Tre livelli per consolidare il posizionamento del polo d'innovazione ETS Fondazione Dalmine nel Nord Italia.
           </p>
         </div>
         <div class="scroll-hint">Scorri orizzontalmente</div>
@@ -83,18 +54,45 @@ const tiers: Tier[] = [
           v-for="tier in tiers"
           :key="tier.name"
           class="maint-card"
-          :class="{ featured: tier.featured, addon: tier.addon }"
+          :class="{ featured: tier.featured }"
         >
           <div class="maint-name">{{ tier.name }}</div>
           <div class="maint-price">
-            <span class="amount" :class="{ 'amount-sm': tier.addon }">{{ tier.price }}</span>
-            <span v-if="tier.period" class="period">{{ tier.period }}</span>
+            <span class="amount">{{ tier.costoMensile }}</span>
+            <span class="period">/mese</span>
           </div>
-          <p class="maint-summary">{{ tier.summary }}</p>
           <ul class="maint-list">
-            <li v-for="item in tier.list" :key="item">{{ item }}</li>
+            <li>
+              <span class="maint-label">Contenuti mensili</span>
+              <span>{{ tier.contenutiMensili }}</span>
+            </li>
+            <li>
+              <span class="maint-label">Gestione campagna</span>
+              <span>{{ tier.gestione }}</span>
+            </li>
+            <li>
+              <span class="maint-label">Costo annuo</span>
+              <span>{{ tier.costoAnnuo }}</span>
+            </li>
           </ul>
         </article>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="video-notes" data-reveal>
+        <div class="video-notes-title">Nota sulla realizzazione dei video</div>
+        <ul>
+          <li>
+            <strong>Pacchetto base:</strong> video puliti, diretti e funzionali. Prevedono riprese standard nei laboratori e un montaggio classico con musica di sottofondo.
+          </li>
+          <li>
+            <strong>Pacchetto Medio:</strong> i video diventano più ritmati e dinamici, pensati apposta per catturare l'attenzione sui social. Aggiungiamo animazioni, parole chiave in sovraimpressione che compaiono a schermo e transizioni moderne.
+          </li>
+          <li>
+            <strong>Pacchetto Pro:</strong> la massima cura del dettaglio. Questo livello ci permette di investire più tempo nella lavorazione.
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -167,20 +165,41 @@ const tiers: Tier[] = [
   font-family: 'Space Grotesk', sans-serif;
   font-size: 3.5rem; font-weight: 600; letter-spacing: -0.04em; line-height: 0.95;
 }
-.maint-price .amount.amount-sm { font-size: 1.75rem; }
 .maint-price .period { font-size: 1rem; opacity: 0.6; }
 
-.maint-summary { font-size: 0.9375rem; line-height: 1.6; margin-bottom: 28px; opacity: 0.78; }
-.maint-list { list-style: none; }
+.maint-list { list-style: none; margin-top: 24px; }
 .maint-list li {
-  padding: 10px 0;
+  padding: 12px 0;
   font-size: 0.9375rem;
   border-top: 1px solid var(--line);
-  display: flex; align-items: center; gap: 10px;
+  display: flex; flex-direction: column; gap: 2px;
 }
 .maint-card.featured .maint-list li { border-top-color: rgba(255,255,255,0.1); }
-.maint-list li::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--navy);
+.maint-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  opacity: 0.5;
 }
-.maint-card.featured .maint-list li::before { background: var(--orange); }
+
+.video-notes {
+  margin: 48px auto 0;
+  padding: 32px 36px;
+  background: var(--fog);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--navy);
+}
+.video-notes-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.video-notes ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.video-notes li { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
+.video-notes li strong { color: var(--navy-deep); }
 </style>

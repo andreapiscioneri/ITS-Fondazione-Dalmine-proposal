@@ -15,7 +15,7 @@ const cols = [
       { label: 'Tenaris', href: '#' },
       { label: 'Brembo', href: '#' },
       { label: 'Lovato Electric', href: '#' },
-      { label: 'ITS Fondazione Dalmine', href: '#' }
+      { label: 'ETS Fondazione Dalmine', href: '#' }
     ]
   },
   {

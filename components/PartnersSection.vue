@@ -1,7 +1,7 @@
 <template>
   <section class="partners-section">
     <div class="partners-inner">
-      <p class="partners-label">Founding Partner</p>
+
       <div class="partners-track">
         <div class="partners-logos">
           <div

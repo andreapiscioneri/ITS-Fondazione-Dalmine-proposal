@@ -32,27 +32,15 @@ const partners = [
     <div class="container">
       <div class="section-head" data-reveal>
         <div class="eyebrow">L'Ecosistema del Talento</div>
-        <h2>Una sinergia d'eccellenza tra Fondazione e leader globali.</h2>
+        <h2>Una sinergia d'eccellenza</h2>
         <p class="lead">
-          La forza dei <strong>Founding Partner</strong> industriali al servizio della formazione tecnica d'alto livello: meccatronica,
+          La forza dei <strong>founding partner</strong> industriali al servizio della <strong> formazione tecnica </strong> d'alto livello: meccatronica,
           automazione, energia e materiali avanzati nel cuore di Bergamo.
         </p>
       </div>
 
       <div class="bento" data-reveal-stagger>
-        <article class="bento-tile tile-headline">
-          <div class="glow" aria-hidden="true"></div>
-          <h3>
-            Tre Founding Partner. Una visione condivisa:
-            <em>formare il futuro dell'industria.</em>
-          </h3>
-          <p class="lead-line">
-            L'Ecosistema Meccatronico Bergamo unisce ITS Fondazione Dalmine ai leader globali Tenaris, Brembo e Lovato per costruire
-            percorsi formativi ad alto impatto occupazionale.
-          </p>
-        </article>
-
-        <article v-for="p in partners" :key="p.name" class="bento-tile" :class="p.cls">
+<article v-for="p in partners" :key="p.name" class="bento-tile" :class="p.cls">
           <div class="tile-bg" :style="p.img ? { backgroundImage: `url('${p.img}')` } : {}" aria-hidden="true"></div>
           <div class="tile-overlay"></div>
           <div class="tile-content">
@@ -65,17 +53,6 @@ const partners = [
           </div>
         </article>
 
-        <article class="bento-tile tile-stat">
-          <div class="tile-content">
-            <div>
-              <div class="big-number">+92<span class="pct">%</span></div>
-              <div class="label-text">
-                Tasso di occupazione medio dei diplomati ITS Fondazione Dalmine entro 12 mesi.
-              </div>
-            </div>
-            <div class="kicker">Indicatore di impatto</div>
-          </div>
-        </article>
       </div>
     </div>
   </section>

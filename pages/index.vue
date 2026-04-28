@@ -10,7 +10,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'Strategia Marketing Integrata 2026/27 ITS Fondazione Dalmine',
+        name: 'Strategia Marketing Integrata 2026/27 ETS Fondazione Dalmine',
         provider: {
           '@type': 'Organization',
           name: 'DENANI S.R.L',
@@ -28,7 +28,7 @@ useHead({
         ],
         audience: {
           '@type': 'EducationalAudience',
-          educationalRole: 'ITS Fondazione Dalmine'
+          educationalRole: 'ETS Fondazione Dalmine'
         }
       })
     }
@@ -50,8 +50,7 @@ onMounted(() => {
     <main>
       <HeroSection />
       <PartnersSection />
-      <EcosystemSection />
-      <PricingSection />
+<PricingSection />
       <KpiSection />
       <MaintenanceSection />
       <ScenarioSection />

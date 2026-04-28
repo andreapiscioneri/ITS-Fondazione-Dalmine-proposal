@@ -32,12 +32,12 @@ const toggleMobileMenu = () => {
 <template>
   <header class="site-header" :class="{ scrolled }">
     <div class="header-inner">
-      <a href="#" class="brand-mark" aria-label="ITS Fondazione Dalmine">
+      <a href="#" class="brand-mark" aria-label="ETS Fondazione Dalmine">
         <span class="logo-fondazione">
           <span class="blue">Fondazione</span><br />
           <span class="green">/Dalmine</span>
         </span>
-        <span class="tagline">ITS Academy</span>
+        <span class="tagline">ETS Academy</span>
       </a>
 
       <nav class="nav-main" aria-label="Navigazione principale">
