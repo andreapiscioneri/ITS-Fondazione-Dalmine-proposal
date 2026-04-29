@@ -37,7 +37,7 @@ const toggleMobileMenu = () => {
           <span class="blue">Fondazione</span><br />
           <span class="green">/Dalmine</span>
         </span>
-        <span class="tagline">ETS Academy</span>
+        <span class="tagline">Proposta strategia di marketing</span>
       </a>
 
       <nav class="nav-main" aria-label="Navigazione principale">
@@ -202,5 +202,6 @@ const toggleMobileMenu = () => {
   .quality-seal { display: none; }
   .hamburger { display: flex; }
   .nav-mobile { display: flex; }
+  .tagline { display: none; }
 }
 </style>
