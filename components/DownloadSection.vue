@@ -1,26 +1,27 @@
 <script setup lang="ts">
 const onDownload = (e: MouseEvent) => {
   e.preventDefault()
-  window.open('/Denani ETS Fondazione Dalmine proposal.pdf', '_blank')
+  window.open('/Denani ITS Fondazione Dalmine proposal.pdf', '_blank')
 }
 </script>
 
 <template>
   <section class="pre-footer" id="download">
-    <div class="download-card" data-reveal>
-      <div>
-        <div class="eyebrow">Area Download</div>
-        <h3>Scarica il riepilogo</h3>
-        <a href="#" class="btn btn-electric download-btn" @click="onDownload">
-          PDF Proposta
-          <span class="arrow">↓</span>
-        </a>
-        <div class="download-meta">
+    <div class="pre-footer-bg" aria-hidden="true"></div>
+    <div class="container" data-reveal>
+      <div class="pre-footer-inner">
+        <div class="pre-footer-text">
+          <div class="eyebrow eyebrow--light">Area Download</div>
+          <h2>Scarica il riepilogo<br>della proposta.</h2>
+          <p>Tutti i dettagli della strategia marketing in un documento PDF completo.</p>
         </div>
-      </div>
-      <div class="download-visual" aria-hidden="true">
-        <div class="icon">
-          <img src="/DENANI-LOGO-WHITE.webp" alt="DENANI" class="denani-logo" />
+        <div class="pre-footer-action">
+          <a href="#" class="download-visual" @click="onDownload">
+            <div class="icon">
+              <img src="/DENANI-LOGO-WHITE.webp" alt="DENANI" class="denani-logo" />
+            </div>
+            <div class="visual-label">PDF Proposta <span class="arrow">→</span></div>
+          </a>
         </div>
       </div>
     </div>
@@ -29,90 +30,113 @@ const onDownload = (e: MouseEvent) => {
 
 <style scoped>
 .pre-footer {
-  background: var(--fog);
+  background: var(--navy-deep);
   padding: 120px 32px;
+  position: relative;
+  overflow: hidden;
 }
-.download-card {
+.pre-footer-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.pre-footer-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -120px; right: -120px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, var(--electric) 0%, transparent 65%);
+  opacity: 0.12; filter: blur(60px);
+}
+
+.pre-footer-inner {
   max-width: 1080px;
   margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-xl);
-  padding: 48px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 48px;
+  display: flex;
   align-items: center;
-  box-shadow: var(--shadow-md);
+  justify-content: space-between;
+  gap: 64px;
+  flex-wrap: wrap;
   position: relative;
-  overflow: hidden;
-}
-.download-card::before {
-  content: ''; position: absolute;
-  top: 0; right: 0;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, var(--electric) 0%, transparent 70%);
-  opacity: 0.08; filter: blur(40px);
-}
-.download-card .eyebrow { margin-bottom: 16px; }
-.download-card h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  margin-bottom: 16px;
-  color: var(--navy-deep);
-}
-.download-card p { font-size: 1rem; color: var(--slate); margin-bottom: 32px; }
-.download-btn { margin-bottom: 24px; }
-.download-meta {
-  display: flex; gap: 24px;
-  font-size: 0.8125rem;
-  color: var(--slate-light);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 500;
-}
-.download-visual {
-  aspect-ratio: 4/3;
-  max-height: 220px;
-  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, var(--electric) 100%);
-  border-radius: var(--radius-lg);
-  position: relative;
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--white);
-}
-.download-visual::before {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.download-visual .icon {
-  width: 96px; height: 96px;
-  border: 1.5px solid rgba(255,255,255,0.4);
-  border-radius: 24px;
-  display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.06);
-  position: relative;
-  z-index: 1;
-  transition: transform 0.4s var(--ease);
-}
-.download-card:hover .download-visual .icon { transform: scale(1.08) rotate(-2deg); }
-.download-visual .icon svg { width: 40px; height: 40px; }
-.download-visual .icon .denani-logo { width: 56px; height: auto; display: block; }
-.download-visual .filename {
-  position: absolute;
-  bottom: 24px; left: 24px; right: 24px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.55);
-  font-family: 'Space Grotesk', monospace;
   z-index: 1;
 }
 
-@media (max-width: 980px) {
-  .download-card { grid-template-columns: 1fr; padding: 36px; }
-  .download-visual { aspect-ratio: 16/9; }
+.pre-footer-text { flex: 1; min-width: 280px; }
+.eyebrow--light {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow--light::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+.pre-footer-text h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.pre-footer-text p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+.pre-footer-action { flex-shrink: 0; }
+
+.download-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.4s var(--ease);
+}
+.download-visual:hover { transform: translateY(-4px); }
+
+.download-visual .icon {
+  width: 120px; height: 120px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 28px;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s, background 0.3s;
+}
+.download-visual:hover .icon {
+  border-color: rgba(255,255,255,0.4);
+  background: linear-gradient(160deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%);
+}
+.denani-logo { width: 64px; height: auto; display: block; }
+
+.visual-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.visual-label .arrow { margin-left: 4px; }
+
+@media (max-width: 700px) {
+  .pre-footer-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
+  .pre-footer-action { width: 100%; display: flex; justify-content: center; }
+  .download-visual { align-items: center; }
 }
 </style>

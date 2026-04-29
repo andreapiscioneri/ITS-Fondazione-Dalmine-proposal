@@ -39,7 +39,7 @@ onBeforeUnmount(() => {
         <span class="accent">Strategia Marketing Integrata</span> 2026
       </h1>
       <p class="hero-sub" data-reveal>
-        Un progetto coordinato da <strong>DENANI S.R.L</strong> per <strong>ETS Fondazione Dalmine</strong>, polo d'innovazione italiano per l'alta formazione tecnica. Promuovere i percorsi post-diploma in tutto il Nord Italia, la casa dello studente e la partnership tra <strong>Tenaris, Brembo e Lovato Electric</strong>.
+        Un progetto coordinato da <strong>DENANI S.R.L</strong> per <strong>ITS Fondazione Dalmine</strong>, polo d'innovazione italiano per l'alta formazione tecnica. Promuovere i percorsi post-diploma in tutto il Nord Italia, la casa dello studente e la partnership tra <strong>Tenaris, Brembo e Lovato Electric</strong>.
       </p>
       <div class="hero-cta-row" data-reveal>
         <a href="#scenario" class="btn btn-primary">
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=2400&q=85');
+  background-image: url('/teenagers-young-team-students-together-stacked-hands-close-up.jpg');
   background-size: cover; background-position: center;
   transform: scale(1.1);
   will-change: transform;

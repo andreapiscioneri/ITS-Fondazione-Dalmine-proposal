@@ -10,22 +10,22 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'it' },
-      title: 'ETS Fondazione Dalmine — Strategia Marketing Integrata 2026/27 | DENANI S.R.L',
+      title: 'ITS Fondazione Dalmine — Strategia Marketing Integrata 2026/27 | DENANI S.R.L',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
-            'Proposta strategica 16 mesi per ETS Fondazione Dalmine. Ecosistema meccatronico Bergamo con Tenaris, Brembo, Lovato. Coordinamento DENANI S.R.L. Investimento totale stimato 44.500€.'
+            'Proposta strategica 16 mesi per ITS Fondazione Dalmine. Ecosistema meccatronico Bergamo con Tenaris, Brembo, Lovato. Coordinamento DENANI S.R.L. Investimento totale stimato 44.500€.'
         },
         {
           name: 'keywords',
           content:
-            'ETS Fondazione Dalmine, marketing integrato, Tenaris, Brembo, Lovato, ecosistema meccatronico, Bergamo, DENANI S.R.L, KPI iscritti, formazione tecnica'
+            'ITS Fondazione Dalmine, marketing integrato, Tenaris, Brembo, Lovato, ecosistema meccatronico, Bergamo, DENANI S.R.L, KPI iscritti, formazione tecnica'
         },
         { name: 'author', content: 'DENANI S.R.L' },
-        { property: 'og:title', content: 'Strategia Marketing Integrata 2026/27 — ETS Fondazione Dalmine' },
+        { property: 'og:title', content: 'Strategia Marketing Integrata 2026/27 — ITS Fondazione Dalmine' },
         {
           property: 'og:description',
           content: 'Connettere Talento e Industria. Proposta a cura di DENANI S.R.L in sinergia con Tenaris, Brembo, Lovato.'

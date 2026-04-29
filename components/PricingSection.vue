@@ -49,7 +49,7 @@ const plans: Plan[] = [
         <div class="eyebrow">Campagna Promozionale · 4 Mesi</div>
         <h2>Tre piani di lancio. Una sola direzione strategica.</h2>
         <p class="lead">
-          Campagna finalizzata alle iscrizioni e alla promozione del polo d'innovazione ETS Fondazione Dalmine in tutto il Nord Italia. Comunicazione differenziata per <strong>studenti</strong> e <strong>genitori</strong>, con produzione video, advertising e reportistica inclusi.
+          Campagna finalizzata alle iscrizioni e alla promozione del polo d'innovazione ITS Fondazione Dalmine in tutto il Nord Italia. Comunicazione differenziata per <strong>studenti</strong> e <strong>genitori</strong>, con produzione video, advertising e reportistica inclusi.
         </p>
       </div>
 

@@ -154,7 +154,7 @@ const tiers: Tier[] = [
                   <span class="platform-badge facebook">Facebook</span>
                   <span class="platform-badge instagram">Instagram</span>
                   <span class="platform-badge tiktok">TikTok</span>
-                  <span class="platform-badge youtube-shorts">Google</span>
+                  <span class="platform-badge google">Google</span>
                 </div>
               </td>
               <td><span class="ads-views">~65.000 — 100.000</span></td>
@@ -267,6 +267,7 @@ const tiers: Tier[] = [
 .platform-badge.instagram { background: #fce4ec; color: #c2185b; }
 .platform-badge.tiktok { background: #f0f0f0; color: #111; }
 .platform-badge.youtube-shorts { background: #fff0e6; color: var(--orange); }
+.platform-badge.google { background: #e6f4ea; color: #1e8e3e; }
 .maint-card.featured .platform-badge.facebook { background: rgba(24,119,242,0.2); color: #90c3ff; }
 .maint-card.featured .platform-badge.instagram { background: rgba(194,24,91,0.2); color: #f48fb1; }
 .maint-card.featured .platform-badge.tiktok { background: rgba(255,255,255,0.15); color: #eee; }
@@ -375,5 +376,25 @@ const tiers: Tier[] = [
   color: var(--slate-light);
   letter-spacing: 0.02em;
   text-align: center;
+}
+
+@media (max-width: 980px) {
+  .ads-maint-block { padding: 24px 16px; }
+  .ads-table { display: block; }
+  .ads-table thead { display: none; }
+  .ads-table tbody { display: flex; flex-direction: column; gap: 12px; }
+  .ads-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    padding: 16px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border-bottom: none !important;
+  }
+  .ads-table td { padding: 4px 0; vertical-align: top; }
+  .ads-table td:nth-child(1) { grid-column: 1 / -1; }
+  .ads-table td:nth-child(4) { grid-column: 1 / -1; }
+  .ads-amount { font-size: 1rem; }
 }
 </style>

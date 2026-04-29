@@ -254,9 +254,25 @@ onMounted(() => {
 }
 
 @media (max-width: 980px) {
-  .kpi-dashboard { padding: 24px; }
+  .kpi-dashboard { padding: 20px 16px; }
+  .kpi-table { display: block; }
   .kpi-table thead { display: none; }
-  .kpi-table tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 0; }
-  .kpi-table td { padding: 8px 0; }
+  .kpi-table tbody { display: flex; flex-direction: column; gap: 16px; }
+  .kpi-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 4px 12px;
+    padding: 16px;
+    background: var(--fog);
+    border-radius: var(--radius-lg);
+    border-bottom: none !important;
+  }
+  .kpi-table td { padding: 4px 0; }
+  .kpi-table td:nth-child(1) { grid-column: 1 / -1; }
+  .kpi-table td:nth-child(3) { grid-column: 1 / -1; }
+  .kpi-table td:nth-child(5) { grid-column: 1 / -1; }
+  .budget-cell { font-size: 1.125rem; }
+  .iscritti-result { font-size: 1.375rem; }
 }
 </style>

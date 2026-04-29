@@ -1,31 +1,19 @@
 <script setup lang="ts">
-const cols = [
-  {
-    title: 'Proposta',
-    links: [
-      { label: 'Ecosistema', href: '#ecosistema' },
-      { label: 'Campagna', href: '#campagna' },
-      { label: 'KPI', href: '#kpi' },
-      { label: 'Mantenimento', href: '#mantenimento' }
-    ]
-  },
-  {
-    title: 'Founding Partner',
-    links: [
-      { label: 'Tenaris', href: '#' },
-      { label: 'Brembo', href: '#' },
-      { label: 'Lovato Electric', href: '#' },
-      { label: 'ETS Fondazione Dalmine', href: '#' }
-    ]
-  },
-  {
-    title: 'Contatti',
-    links: [
-      { label: 'support@denani.it', href: 'mailto:support@denani.it' },
-      { label: 'Bergamo, Italia', href: '#' },
-      { label: 'denani.odoo.com', href: 'https://denani.odoo.com/' }
-    ]
-  }
+const navLinks = [
+  { label: 'Campagna', href: '#campagna' },
+  { label: 'KPI', href: '#kpi' },
+  { label: 'Mantenimento', href: '#mantenimento' },
+  { label: 'Scenario', href: '#scenario' },
+  { label: 'Lavori', href: '#lavori' },
+  { label: 'Download', href: '#download' }
+]
+
+const foundingPartners = ['Tenaris', 'Brembo', 'Lovato Electric', 'ITS Fondazione Dalmine']
+
+const contactLinks = [
+  { label: 'support@denani.it', href: 'mailto:support@denani.it' },
+  { label: 'Bergamo, Italia', href: null },
+  { label: 'denani.odoo.com', href: 'https://denani.odoo.com/' }
 ]
 </script>
 
@@ -40,11 +28,31 @@ const cols = [
             tecnica d'eccellenza.
           </p>
         </div>
-        <div v-for="col in cols" :key="col.title" class="footer-col">
-          <h4>{{ col.title }}</h4>
+
+        <div class="footer-col">
+          <h4>Proposta</h4>
           <ul>
-            <li v-for="link in col.links" :key="link.label">
+            <li v-for="link in navLinks" :key="link.label">
               <a :href="link.href">{{ link.label }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Founding Partner</h4>
+          <ul>
+            <li v-for="name in foundingPartners" :key="name">
+              <span class="footer-text">{{ name }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul>
+            <li v-for="link in contactLinks" :key="link.label">
+              <a v-if="link.href" :href="link.href">{{ link.label }}</a>
+              <span v-else class="footer-text">{{ link.label }}</span>
             </li>
           </ul>
         </div>
@@ -112,6 +120,10 @@ const cols = [
   transition: color 0.3s var(--ease);
 }
 .footer-col a:hover { color: var(--white); }
+.footer-text {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9375rem;
+}
 .footer-bottom {
   padding-top: 32px;
   display: flex; align-items: center; justify-content: space-between;

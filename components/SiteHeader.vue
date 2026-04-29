@@ -32,7 +32,7 @@ const toggleMobileMenu = () => {
 <template>
   <header class="site-header" :class="{ scrolled }">
     <div class="header-inner">
-      <a href="#" class="brand-mark" aria-label="ETS Fondazione Dalmine">
+      <a href="#" class="brand-mark" aria-label="ITS Fondazione Dalmine">
         <span class="logo-fondazione">
           <span class="blue">Fondazione</span><br />
           <span class="green">/Dalmine</span>
@@ -41,11 +41,12 @@ const toggleMobileMenu = () => {
       </a>
 
       <nav class="nav-main" aria-label="Navigazione principale">
-        <a href="#ecosistema" @click="handleAnchor($event, '#ecosistema')">Ecosistema</a>
         <a href="#campagna" @click="handleAnchor($event, '#campagna')">Campagna</a>
         <a href="#kpi" @click="handleAnchor($event, '#kpi')">KPI</a>
         <a href="#mantenimento" @click="handleAnchor($event, '#mantenimento')">Mantenimento</a>
         <a href="#scenario" @click="handleAnchor($event, '#scenario')">Scenario</a>
+        <a href="#lavori" @click="handleAnchor($event, '#lavori')">Lavori</a>
+        <a href="#download" @click="handleAnchor($event, '#download')">Download</a>
       </nav>
 
       <a href="#" class="quality-seal" aria-label="A cura di DENANI S.R.L — Sigillo di Qualità">
@@ -64,11 +65,12 @@ const toggleMobileMenu = () => {
     </div>
 
     <nav v-if="mobileMenuOpen" class="nav-mobile" aria-label="Navigazione mobile">
-      <a href="#ecosistema" @click="handleAnchor($event, '#ecosistema')">Ecosistema</a>
       <a href="#campagna" @click="handleAnchor($event, '#campagna')">Campagna</a>
       <a href="#kpi" @click="handleAnchor($event, '#kpi')">KPI</a>
       <a href="#mantenimento" @click="handleAnchor($event, '#mantenimento')">Mantenimento</a>
       <a href="#scenario" @click="handleAnchor($event, '#scenario')">Scenario</a>
+      <a href="#lavori" @click="handleAnchor($event, '#lavori')">Lavori</a>
+      <a href="#download" @click="handleAnchor($event, '#download')">Download</a>
     </nav>
   </header>
 </template>
