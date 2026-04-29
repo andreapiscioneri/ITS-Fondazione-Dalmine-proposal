@@ -214,7 +214,7 @@ onMounted(() => {
 }
 .platform-label.meta { background: #e7f0ff; color: #1877f2; }
 .platform-label.tiktok { background: #f0f0f0; color: #111; }
-.platform-label.google { background: #fef3e2; color: #ea4335; }
+.platform-label.google { background: #e6f4ea; color: #1e8e3e; }
 .platform-val {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.875rem;
@@ -232,7 +232,7 @@ onMounted(() => {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-.roi-tag.high { background: rgba(255,107,26,0.12); color: var(--orange); }
+.roi-tag.high { background: #e6f4ea; color: #1e8e3e; }
 
 .kpi-disclaimer {
   margin-top: 32px;
